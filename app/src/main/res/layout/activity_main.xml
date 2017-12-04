@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="net.amay077.livedatasample.view.MainActivity"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
-        android:id="@+id/editUserName"
+    <data>
+        <variable
+            name="viewModel"
+            type="net.amay077.livedatasample.viewmodel.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="GitHub user name" />
+        android:layout_height="match_parent"
+        tools:context="net.amay077.livedatasample.view.MainActivity"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buttonLoad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOAD"/>
+        <EditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="GitHub user name"
+            android:text="@={viewModel.user.value}"/>
 
-    <ListView
-        android:id="@+id/listRepos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/buttonLoad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOAD"
+            app:rxCommandOnClick="@{viewModel.load}"/>
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/listRepos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</layout>
