@@ -10,3 +10,4 @@ Simple Android sample apps using listed features.
 * [ViewModel(Android Architecture Components)](https://developer.android.com/topic/libraries/architecture/viewmodel.html)
 * MVVM
 
+![screenshot](screenshot.gif)
